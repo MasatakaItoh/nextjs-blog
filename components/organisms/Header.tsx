@@ -1,19 +1,27 @@
 import { memo, VFC } from 'react';
 import Link from 'next/link';
 
+import styles from '../styles/components/Header.module.scss';
+
 export const Header: VFC = memo(() => {
   return (
-    <header>
+    <header className={styles.container}>
       <p>
-        <Link href='/'>Next.js Blog</Link>
+        <Link href='/'>
+          <a className={styles.heading}>Next.js Blog</a>
+        </Link>
       </p>
-      <nav>
-        <ul>
+      <nav className={styles.nav}>
+        <ul className={styles.list}>
           <li>
-            <Link href='/articles/'>記事一覧</Link>
+            <Link href='/'>
+              <a className={styles.listLink}>TOP</a>
+            </Link>
           </li>
           <li>
-            <Link href='/articles/'>記事一覧</Link>
+            <Link href='/articles/'>
+              <a className={styles.listLink}>記事一覧</a>
+            </Link>
           </li>
         </ul>
       </nav>

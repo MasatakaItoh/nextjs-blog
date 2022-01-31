@@ -1,0 +1,38 @@
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px 40px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.heading {
+  display: block;
+  padding: 10px 25px;
+  font-size: 24px;
+  font-weight: bold;
+  transition: opacity 0.3s var(--ease-out-quint);
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+.nav {
+  margin-left: 40px;
+}
+
+.list {
+  display: flex;
+  align-items: center;
+}
+
+.listLink {
+  display: block;
+  padding: 10px 25px;
+  font-size: 16px;
+  transition: opacity 0.3s var(--ease-out-quint);
+  &:hover {
+    opacity: 0.8;
+  }
+}
