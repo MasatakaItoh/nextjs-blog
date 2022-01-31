@@ -3,15 +3,15 @@ import Head from 'next/head';
 import Link from 'next/link';
 
 import { client } from '../libs/client';
-import { Blog } from '../types/api/blog';
+import { Article } from '../types/api/article';
 
 type Props = {
-  blogs: Array<Blog>;
+  articles: Array<Article>;
 };
 
 const Home: NextPage<Props> = (props) => {
-  const { blogs } = props;
-  console.log(blogs); // 仮
+  const { articles } = props;
+  console.log(articles); // 仮
 
   return (
     <>
@@ -21,10 +21,10 @@ const Home: NextPage<Props> = (props) => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <ul>
-        {blogs.map((blog) => (
-          <li key={blog.id}>
-            <Link href={`/blog/${blog.id}`}>
-              <a>{blog.title}</a>
+        {articles.map((article) => (
+          <li key={article.id}>
+            <Link href={`/articles/${article.id}`}>
+              <a>{article.title}</a>
             </Link>
           </li>
         ))}
@@ -36,11 +36,11 @@ const Home: NextPage<Props> = (props) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: 'blog' });
+  const data = await client.get({ endpoint: 'article' });
 
   return {
     props: {
-      blogs: data.contents,
+      articles: data.contents,
     },
   };
 };
