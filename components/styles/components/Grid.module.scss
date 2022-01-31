@@ -1,0 +1,16 @@
+.grid {
+  $gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  &[data-column="3"] {
+    > * {
+      width: calc(100% / 3);
+      &:nth-child(n + 4) {
+        margin-top: $gap;
+      }
+      &:not(:nth-child(3n + 1)) {
+        margin-left: $gap;
+      }
+    }
+  }
+}

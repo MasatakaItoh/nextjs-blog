@@ -1,0 +1,20 @@
+.link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  &::after {
+    content: "";
+    display: block;
+    flex: none;
+    margin-left: 10px;
+    border-top: 3px solid var(--color-primary);
+    border-right: 3px solid var(--color-primary);
+    width: 6px;
+    height: 6px;
+    transform: rotate(45deg);
+  }
+  &:hover {
+    text-decoration: underline;
+  }
+}

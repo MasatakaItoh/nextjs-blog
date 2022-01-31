@@ -2,6 +2,9 @@ import type { NextPage } from 'next';
 import Link from 'next/link';
 
 import { Meta } from '../components/common/Meta';
+import { Grid } from '../components/atoms/layout/Grid';
+import { TextLink } from '../components/atoms/link/TextLink';
+import { ArticleCard } from '../components/molecules/ArticleCard';
 import { client } from '../libs/client';
 import { Article } from '../types/api/article';
 
@@ -9,24 +12,32 @@ type Props = {
   articles: Array<Article>;
 };
 
-const Home: NextPage<Props> = (props) => {
-  const { articles } = props;
-
+const Home: NextPage<Props> = ({ articles }) => {
   return (
     <>
       <Meta />
       <main>
-        <h1>Nuxt.js Blog</h1>
-        <ul>
-          {articles.map((article) => (
-            <li key={article.id}>
-              <Link href={`/articles/${article.id}`}>
-                <a>{article.title}</a>
-              </Link>
-            </li>
-          ))}
-        </ul>
-        <Link href='/articles/'>記事一覧を見る</Link>
+        <h1 className='heading01'>Nuxt.js Blog</h1>
+        <section className='section'>
+          <h2 className='heading02'>Articles</h2>
+          <div className='contents'>
+            <Grid>
+              {articles.map((article) => (
+                <article key={article.id}>
+                  <ArticleCard
+                    id={article.id}
+                    title={article.title}
+                    time={article.publishedAt}
+                    excerpt={article.excerpt}
+                  />
+                </article>
+              ))}
+            </Grid>
+            <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
+              <TextLink url='/articles/'>記事一覧を見る</TextLink>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
