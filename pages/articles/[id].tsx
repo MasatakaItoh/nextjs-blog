@@ -1,5 +1,6 @@
 import type { GetStaticProps, NextPage } from 'next';
 
+import { Meta } from '../../components/common/Meta';
 import { client } from '../../libs/client';
 import { Article } from '../../types/api/article';
 import { Client } from '../../types/api/client';
@@ -11,15 +12,18 @@ type Props = {
 
 const Article: NextPage<Props> = ({ article }) => {
   return (
-    <main>
-      <h1>{article.title}</h1>
-      <p>{article.publishedAt}</p>
-      <div
-        dangerouslySetInnerHTML={{
-          __html: `${article.body}`,
-        }}
-      />
-    </main>
+    <>
+      <Meta title={article.title} description={article.excerpt} />
+      <main>
+        <h1>{article.title}</h1>
+        <p>{article.publishedAt}</p>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: `${article.body}`,
+          }}
+        />
+      </main>
+    </>
   );
 };
 

@@ -1,7 +1,7 @@
 import type { NextPage } from 'next';
-import Head from 'next/head';
 import Link from 'next/link';
 
+import { Meta } from '../components/common/Meta';
 import { client } from '../libs/client';
 import { Article } from '../types/api/article';
 
@@ -15,11 +15,7 @@ const Home: NextPage<Props> = (props) => {
 
   return (
     <>
-      <Head>
-        <title>Next.js Blog</title>
-        <meta name='description' content='Next.js BlogのTOPページです' />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
+      <Meta />
       <ul>
         {articles.map((article) => (
           <li key={article.id}>
