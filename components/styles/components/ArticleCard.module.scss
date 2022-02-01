@@ -1,5 +1,10 @@
+@import "../variables";
+
 .container {
   padding: 20px;
+  @include mq(md) {
+    padding: 30px;
+  }
 }
 
 .content {

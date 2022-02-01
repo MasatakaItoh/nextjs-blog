@@ -11,7 +11,6 @@ type Props = {
 };
 
 const Articles: NextPage<Props> = ({ articles }) => {
-  console.log(articles[0].thumbnail);
   return (
     <>
       <Meta />
