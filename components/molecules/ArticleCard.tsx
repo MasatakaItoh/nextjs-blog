@@ -3,24 +3,23 @@ import Link from 'next/link';
 
 import { Card } from '../atoms/card/Card';
 import styles from '../styles/components/ArticleCard.module.scss';
+import { Article } from '../../types/api/article';
 
-type Props = {
-  id: string;
-  title: string;
-  time: string;
-  excerpt: string;
-};
+type Props = Omit<Article, 'body' | 'createdAt' | 'revisedAt' | 'updatedAt'>;
 
 export const ArticleCard: VFC<Props> = memo((props) => {
-  const { id, title, time, excerpt } = props;
+  const { id, title, thumbnail, publishedAt, excerpt } = props;
 
   return (
     <Card>
       <div className={styles.container}>
         <Link href={`/articles/${id}`}>
-          <a>
+          <a className={styles.content}>
             <h3 className={styles.heading}>{title}</h3>
-            <p className={styles.time}>{time}</p>
+            <div className={styles.thumbnail}>
+              <img src={thumbnail.url} alt='' width={thumbnail.width} height={thumbnail.height} decoding='async' />
+            </div>
+            <p className={styles.time}>{publishedAt}</p>
             <p className={styles.excerpt}>{excerpt}</p>
           </a>
         </Link>

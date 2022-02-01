@@ -4,7 +4,7 @@
   flex-wrap: wrap;
   &[data-column="3"] {
     > * {
-      width: calc(100% / 3);
+      width: calc((100% - #{$gap} * 2) / 3);
       &:nth-child(n + 4) {
         margin-top: $gap;
       }

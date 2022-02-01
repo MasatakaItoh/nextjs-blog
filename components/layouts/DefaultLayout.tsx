@@ -14,7 +14,9 @@ export const DefaultLayout: VFC<Props> = memo((props) => {
   return (
     <>
       <Header />
-      <div className={styles.content}>{children}</div>
+      <div className={styles.container}>
+        <div className={styles.content}>{children}</div>
+      </div>
       <Footer />
     </>
   );

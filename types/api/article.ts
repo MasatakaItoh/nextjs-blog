@@ -6,5 +6,10 @@ export type Article = {
   publishedAt: string;
   revisedAt: string;
   title: string;
+  thumbnail: {
+    height: number;
+    url: string;
+    width: number;
+  };
   updatedAt: string;
 };

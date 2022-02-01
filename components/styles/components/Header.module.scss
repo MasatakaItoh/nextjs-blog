@@ -1,15 +1,21 @@
+@use "../variables";
+
 .container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   padding: 25px 40px;
   background-color: var(--color-primary);
   color: var(--color-white);
 }
 
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include variables.content_width;
+}
+
 .heading {
   display: block;
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-size: 24px;
   font-weight: bold;
   transition: opacity 0.3s var(--ease-out-quint);
@@ -29,7 +35,7 @@
 
 .listLink {
   display: block;
-  padding: 10px 25px;
+  padding: 10px 20px;
   font-size: 16px;
   transition: opacity 0.3s var(--ease-out-quint);
   &:hover {
