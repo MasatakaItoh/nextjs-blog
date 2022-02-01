@@ -15,13 +15,13 @@ const Home: NextPage<Props> = ({ articles }) => {
   return (
     <>
       <Meta />
-      <main>
+      <main className='content'>
         <h1 className='heading01'>Nuxt.js Blog</h1>
         <section className='section'>
           <h2 className='heading02'>記事一覧</h2>
-          {/*TODO: CSS ModulesにおけるPagesのスタイル指定方法 */}
+          {/*TODO: CSS ModulesにおけるPagesのスタイル指定方法検討 */}
           <p style={{ marginTop: '20px' }}>最新記事を3件まで表示します。</p>
-          <div className='contents'>
+          <div className='body'>
             <Grid>
               {articles.map((article) => (
                 <article key={article.id}>
@@ -35,7 +35,7 @@ const Home: NextPage<Props> = ({ articles }) => {
                 </article>
               ))}
             </Grid>
-            {/*TODO: CSS ModulesにおけるPagesのスタイル指定方法 */}
+            {/*TODO: CSS ModulesにおけるPagesのスタイル指定方法検討 */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
               <TextLink url='/articles/'>記事一覧を見る</TextLink>
             </div>

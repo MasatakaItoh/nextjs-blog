@@ -14,9 +14,9 @@ const Articles: NextPage<Props> = ({ articles }) => {
   return (
     <>
       <Meta />
-      <main>
+      <main className='content'>
         <h1 className='heading01'>記事一覧</h1>
-        <div className='contents'>
+        <div className='body'>
           <Grid>
             {articles.map((article) => (
               <article key={article.id}>

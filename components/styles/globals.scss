@@ -29,6 +29,14 @@ li {
   list-style: none;
 }
 
+.entry {
+  // 投稿エリアのstyle
+}
+
+.content {
+  padding: 80px 60px;
+}
+
 .section {
   padding-top: 60px;
   padding-bottom: 60px;
@@ -44,6 +52,6 @@ li {
   font-weight: bold;
 }
 
-.contents {
-  margin-top: 40px;
+.body {
+  margin-top: 60px;
 }

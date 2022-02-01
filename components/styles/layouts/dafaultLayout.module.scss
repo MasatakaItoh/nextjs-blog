@@ -1,9 +1,5 @@
 @use "../variables";
 
 .container {
-  padding: 80px 60px;
-}
-
-.content {
   @include variables.content_width;
 }

@@ -1,6 +1,7 @@
 import type { GetStaticProps, NextPage } from 'next';
 
 import { Meta } from '../../components/common/Meta';
+import { MainVisual } from '../../components/molecules/MainVisual';
 import { client } from '../../libs/client';
 import { Article } from '../../types/api/article';
 import { Client } from '../../types/api/client';
@@ -15,9 +16,9 @@ const Article: NextPage<Props> = ({ article }) => {
     <>
       <Meta title={article.title} description={article.excerpt} />
       <main>
-        <h1>{article.title}</h1>
-        <p>{article.publishedAt}</p>
+        <MainVisual title={article.title} publishedAt={article.publishedAt} thumbnail={article.thumbnail} />
         <div
+          className='entry content'
           dangerouslySetInnerHTML={{
             __html: `${article.body}`,
           }}
