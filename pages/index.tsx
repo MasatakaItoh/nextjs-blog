@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 
 import { Meta } from '../components/common/Meta';
 import { Grid } from '../components/atoms/layout/Grid';
@@ -19,7 +18,9 @@ const Home: NextPage<Props> = ({ articles }) => {
       <main>
         <h1 className='heading01'>Nuxt.js Blog</h1>
         <section className='section'>
-          <h2 className='heading02'>Articles</h2>
+          <h2 className='heading02'>記事一覧</h2>
+          {/*TODO: CSS ModulesにおけるPagesのスタイル指定方法 */}
+          <p style={{ marginTop: '20px' }}>最新記事を3件まで表示します。</p>
           <div className='contents'>
             <Grid>
               {articles.map((article) => (
@@ -27,12 +28,14 @@ const Home: NextPage<Props> = ({ articles }) => {
                   <ArticleCard
                     id={article.id}
                     title={article.title}
-                    time={article.publishedAt}
+                    thumbnail={article.thumbnail}
+                    publishedAt={article.publishedAt}
                     excerpt={article.excerpt}
                   />
                 </article>
               ))}
             </Grid>
+            {/*TODO: CSS ModulesにおけるPagesのスタイル指定方法 */}
             <div style={{ display: 'flex', justifyContent: 'flex-end', marginTop: '20px' }}>
               <TextLink url='/articles/'>記事一覧を見る</TextLink>
             </div>
@@ -46,7 +49,7 @@ const Home: NextPage<Props> = ({ articles }) => {
 export default Home;
 
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: 'article' });
+  const data = await client.get({ endpoint: 'article', queries: { limit: 3 } });
 
   return {
     props: {
