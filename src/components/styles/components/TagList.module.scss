@@ -1,0 +1,11 @@
+.list {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  margin-top: 5px;
+  &:not(:last-child) {
+    margin-right: 5px;
+  }
+}

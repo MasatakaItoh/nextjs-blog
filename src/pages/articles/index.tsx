@@ -1,49 +1,59 @@
 import type { NextPage } from 'next';
+import Link from 'next/link';
 
 import { Meta } from '../../components/common/Meta';
 import { client } from '../../libs/client';
 import { Article } from '../../types/api/article';
 import { Grid } from '../../components/atoms/layout/Grid';
 import { ArticleCard } from '../../components/molecules/ArticleCard';
+import { TagList } from '../../components/molecules/TagList';
+import { ClientArticle, ClientCategory } from '../../types/api/client';
+import { Category } from '../../types/api/category';
 
 type Props = {
   articles: Array<Article>;
+  categories: Array<Category>;
 };
 
-const Articles: NextPage<Props> = ({ articles }) => {
+const Articles: NextPage<Props> = ({ articles, categories }) => {
   return (
     <>
-      <Meta />
-      <main className='content'>
-        <h1 className='heading01'>記事一覧</h1>
-        <div className='body'>
-          <Grid>
-            {articles.map((article) => (
-              <article key={article.id}>
-                <ArticleCard
-                  id={article.id}
-                  title={article.title}
-                  thumbnail={article.thumbnail}
-                  publishedAt={article.publishedAt}
-                  excerpt={article.excerpt}
-                />
-              </article>
-            ))}
-          </Grid>
+      <Meta title='記事一覧' description='記事一覧ページの説明文です' />
+      <main className='l-content'>
+        <h1 className='c-heading01'>記事一覧</h1>
+        <div className='l-content__body'>
+          <TagList categories={categories} />
+          <div className='l-content__list'>
+            <Grid>
+              {articles.map((article) => (
+                <article key={article.id}>
+                  <ArticleCard
+                    id={article.id}
+                    title={article.title}
+                    thumbnail={article.thumbnail}
+                    publishedAt={article.publishedAt}
+                    excerpt={article.excerpt}
+                  />
+                </article>
+              ))}
+            </Grid>
+          </div>
         </div>
       </main>
     </>
   );
 };
 
-export default Articles;
-
 export const getStaticProps = async () => {
-  const data = await client.get({ endpoint: 'article' });
+  const articles = await client.get<ClientArticle>({ endpoint: 'article' });
+  const categories = await client.get<ClientCategory>({ endpoint: 'categories' });
 
   return {
     props: {
-      articles: data.contents,
+      articles: articles.contents,
+      categories: categories.contents,
     },
   };
 };
+
+export default Articles;

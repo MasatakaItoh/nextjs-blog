@@ -1,11 +1,11 @@
-import { memo, ReactNode, VFC } from 'react';
+import { memo, VFC } from 'react';
 import Link from 'next/link';
 
 import { Card } from '../atoms/card/Card';
 import styles from '../styles/components/ArticleCard.module.scss';
 import { Article } from '../../types/api/article';
 
-type Props = Omit<Article, 'body' | 'createdAt' | 'revisedAt' | 'updatedAt'>;
+type Props = Pick<Article, 'id' | 'title' | 'thumbnail' | 'publishedAt' | 'excerpt'>;
 
 export const ArticleCard: VFC<Props> = memo((props) => {
   const { id, title, thumbnail, publishedAt, excerpt } = props;

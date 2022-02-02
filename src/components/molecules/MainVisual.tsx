@@ -6,7 +6,6 @@ import { Article } from '../../types/api/article';
 type Props = Pick<Article, 'title' | 'publishedAt' | 'thumbnail'>;
 
 export const MainVisual: VFC<Props> = memo(({ title, publishedAt, thumbnail }) => {
-  console.log(thumbnail);
   return (
     <div className={styles.container}>
       <div className={styles.content}>

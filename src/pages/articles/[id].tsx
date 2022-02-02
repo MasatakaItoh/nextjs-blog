@@ -4,7 +4,7 @@ import { Meta } from '../../components/common/Meta';
 import { MainVisual } from '../../components/molecules/MainVisual';
 import { client } from '../../libs/client';
 import { Article } from '../../types/api/article';
-import { Client } from '../../types/api/client';
+import { ClientArticle } from '../../types/api/client';
 import { Params } from 'next/dist/server/router';
 
 type Props = {
@@ -18,7 +18,7 @@ const Article: NextPage<Props> = ({ article }) => {
       <main>
         <MainVisual title={article.title} publishedAt={article.publishedAt} thumbnail={article.thumbnail} />
         <div
-          className='entry content'
+          className='entry l-content'
           dangerouslySetInnerHTML={{
             __html: `${article.body}`,
           }}
@@ -29,7 +29,7 @@ const Article: NextPage<Props> = ({ article }) => {
 };
 
 export const getStaticPaths = async () => {
-  const data = await client.get<Client>({ endpoint: 'article' });
+  const data = await client.get<ClientArticle>({ endpoint: 'article' });
   const paths = data.contents.map((content) => `/articles/${content.id}`);
 
   return { paths, fallback: false };
@@ -40,7 +40,7 @@ export const getStaticPaths = async () => {
 export const getStaticProps: GetStaticProps<Params> = async ({ params }) => {
   const id = params?.id;
   if (typeof id !== 'string') return;
-  const data = await client.get<Client>({ endpoint: 'article', contentId: id });
+  const data = await client.get<ClientArticle>({ endpoint: 'article', contentId: id });
 
   return {
     props: {

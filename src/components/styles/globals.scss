@@ -29,29 +29,39 @@ li {
   list-style: none;
 }
 
-.entry {
+.c-entry {
   // 投稿エリアのstyle
 }
 
-.content {
+.l-content {
   padding: 80px 60px;
+  .l-content__body {
+    margin-top: 40px;
+  }
+  .l-content__list {
+    margin-top: 60px;
+  }
+  .l-content__link {
+    display: flex;
+    margin-top: 40px;
+    &._right {
+      justify-content: flex-end;
+    }
+  }
 }
 
-.section {
+.l-section {
   padding-top: 60px;
   padding-bottom: 60px;
 }
 
-.heading01 {
+.c-heading01 {
   font-size: 40px;
   font-weight: bold;
 }
 
-.heading02 {
+.c-heading02 {
   font-size: 32px;
   font-weight: bold;
 }
 
-.body {
-  margin-top: 60px;
-}
