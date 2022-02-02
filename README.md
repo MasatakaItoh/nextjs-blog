@@ -1,6 +1,8 @@
-## Getting Started
+## Deploy on Vercel
 
-First, run the development server:
+URL: https://nextjs-blog-ito.vercel.app/
+
+## Getting Started
 
 ```bash
 npm run dev
@@ -12,11 +14,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## 質問
 
-- 後ほど質問を記入します。
-- 後ほど質問を記入します。
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- 実務目線でリファクタリングするなら？
+- dangerouslySetInnerHTMLのXSS対策のススメ
+- NextPage / VFCなどの差異と、関数コンポーネントの型指定のススメ
+- TODOアノテーションコメント＝TSの型指定の方法がわからなかったのでアドバイスがほしい
+- getStaticPropsのコードの共通化方法（getの記述を繰り返し書いてしまっている）
+- importの相対パスをなんとかしたい
+- memo化の粒度は合っているか？
+- memo化した関数コンポーネントで、アロー関数かつnamed exportを使用する条件で、react/display-nameの回避方法があれば知りたい
