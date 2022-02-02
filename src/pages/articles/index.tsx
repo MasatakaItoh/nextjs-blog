@@ -1,5 +1,4 @@
 import type { NextPage } from 'next';
-import Link from 'next/link';
 
 import { Meta } from '../../components/common/Meta';
 import { client } from '../../libs/client';

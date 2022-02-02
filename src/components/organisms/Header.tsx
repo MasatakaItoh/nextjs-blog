@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from '../styles/components/Header.module.scss';
 
-export const Header: VFC = memo(() => {
+export const Header: VFC = memo(function Header() {
   return (
     <header className={styles.container}>
       <div className={styles.content}>

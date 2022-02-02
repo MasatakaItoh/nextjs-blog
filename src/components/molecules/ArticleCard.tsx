@@ -8,7 +8,7 @@ import { Article } from '../../types/api/article';
 
 type Props = Pick<Article, 'id' | 'title' | 'thumbnail' | 'publishedAt' | 'excerpt'>;
 
-export const ArticleCard: VFC<Props> = memo((props) => {
+export const ArticleCard: VFC<Props> = memo(function ArticleCard(props) {
   const { id, title, thumbnail, publishedAt, excerpt } = props;
   const time = dayjs(publishedAt).format('YYYY/MM/DD');
   const dateTime = dayjs(publishedAt).format('YYYY-MM-DD');

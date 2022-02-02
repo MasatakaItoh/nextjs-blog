@@ -8,7 +8,7 @@ type Props = {
   children: ReactNode;
 };
 
-export const DefaultLayout: VFC<Props> = memo((props) => {
+export const DefaultLayout: VFC<Props> = memo(function DefaultLayout(props) {
   const { children } = props;
 
   return (

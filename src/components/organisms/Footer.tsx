@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 import styles from '../styles/components/Footer.module.scss';
 
-export const Footer: VFC = memo(() => {
+export const Footer: VFC = memo(function Footer() {
   return (
     <footer className={styles.container}>
       <nav>

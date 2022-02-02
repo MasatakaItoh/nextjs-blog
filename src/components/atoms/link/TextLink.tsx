@@ -8,7 +8,7 @@ type Props = {
   url: string;
 };
 
-export const TextLink: VFC<Props> = memo((props) => {
+export const TextLink: VFC<Props> = memo(function TextLink(props) {
   const { children, url } = props;
 
   return (

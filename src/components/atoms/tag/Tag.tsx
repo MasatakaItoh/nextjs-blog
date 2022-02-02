@@ -10,7 +10,7 @@ type Props = {
   isCurrent: boolean;
 };
 
-export const Tag: VFC<Props> = memo(({ children, url, isCurrent }) => {
+export const Tag: VFC<Props> = memo(function Tag({ children, url, isCurrent }) {
   return (
     <Link href={url}>
       <a className={clsx(styles.tag, { [styles.currentTag]: isCurrent })}>{children}</a>

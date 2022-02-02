@@ -6,7 +6,7 @@ import { Article } from '../../types/api/article';
 
 type Props = Pick<Article, 'title' | 'publishedAt' | 'thumbnail'>;
 
-export const MainVisual: VFC<Props> = memo(({ title, publishedAt, thumbnail }) => {
+export const MainVisual: VFC<Props> = memo(function MainVisual({ title, publishedAt, thumbnail }) {
   const time = dayjs(publishedAt).format('YYYY/MM/DD');
   const dateTime = dayjs(publishedAt).format('YYYY-MM-DD');
 

@@ -6,8 +6,9 @@ type Props = {
   description?: string;
 };
 
-export const Meta: VFC<Props> = memo((props) => {
+export const Meta: VFC<Props> = memo(function Meta(props) {
   const { title = 'TOPページ', description = 'Next.js BlogのTOPページです' } = props;
+
   return (
     <Head>
       <title>{`${title} | Next.js Blog`}</title>

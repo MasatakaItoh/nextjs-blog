@@ -7,7 +7,7 @@ type Props = {
   column?: number;
 };
 
-export const Grid: VFC<Props> = memo((props) => {
+export const Grid: VFC<Props> = memo(function Grid(props) {
   const { children, column = 3 } = props;
 
   return (
