@@ -1,0 +1,44 @@
+@import "../variables";
+
+.container {
+  padding: 20px;
+  @include mq(md) {
+    padding: 30px;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.heading {
+  order: 2;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.thumbnail {
+  order: 1;
+  margin-bottom: 14px;
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+}
+
+.time {
+  order: 3;
+  display: block;
+  margin-top: 10px;
+  color: var(--color-gray);
+  font-size: 14px;
+}
+
+.excerpt {
+  order: 4;
+  margin-top: 10px;
+  font-size: 15px;
+}

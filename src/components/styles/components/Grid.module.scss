@@ -1,0 +1,28 @@
+@import "../variables";
+
+.grid {
+  $gap: 20px;
+  $gapL: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  &[data-column="3"] {
+    > * {
+      width: calc((100% - #{$gap} * 2) / 3);
+      &:nth-child(n + 4) {
+        margin-top: $gap;
+      }
+      &:not(:nth-child(3n + 1)) {
+        margin-left: $gap;
+      }
+      @include mq(md) {
+        width: calc((100% - #{$gapL} * 2) / 3);
+        &:nth-child(n + 4) {
+          margin-top: $gapL;
+        }
+        &:not(:nth-child(3n + 1)) {
+          margin-left: $gapL;
+        }
+      }
+    }
+  }
+}
