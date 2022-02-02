@@ -18,7 +18,7 @@ const Article: NextPage<Props> = ({ article }) => {
       <main>
         <MainVisual title={article.title} publishedAt={article.publishedAt} thumbnail={article.thumbnail} />
         <div
-          className='entry l-content'
+          className='p-entry l-content'
           dangerouslySetInnerHTML={{
             __html: `${article.body}`,
           }}

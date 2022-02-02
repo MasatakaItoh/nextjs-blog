@@ -21,7 +21,7 @@ const Home: NextPage<Props> = ({ articles }) => {
         <section className='l-section'>
           <header>
             <h2 className='c-heading02'>記事一覧</h2>
-            <p>最新記事を3件まで表示します。</p>
+            <p style={{ marginTop: '20px' }}>最新記事を3件まで表示します。</p>
           </header>
           <div className='l-content__body'>
             <div className='l-content__list'>

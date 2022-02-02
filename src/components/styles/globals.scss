@@ -29,8 +29,10 @@ li {
   list-style: none;
 }
 
-.c-entry {
-  // 投稿エリアのstyle
+.p-entry {
+  p {
+    line-height: 2;
+  }
 }
 
 .l-content {
