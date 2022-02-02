@@ -2,6 +2,8 @@
 
 URL: https://nextjs-blog-ito.vercel.app/
 
+※レスポンシブ対応は行っていないです
+
 ## Getting Started
 
 ```bash
