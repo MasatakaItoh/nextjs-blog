@@ -1,11 +1,11 @@
 import type { GetStaticProps, NextPage } from 'next';
+import { Params } from 'next/dist/server/router';
 
+import { client } from '../../libs/client';
 import { Meta } from '../../components/common/Meta';
 import { MainVisual } from '../../components/molecules/MainVisual';
-import { client } from '../../libs/client';
 import { Article } from '../../types/api/article';
 import { ClientArticle } from '../../types/api/client';
-import { Params } from 'next/dist/server/router';
 
 type Props = {
   article: Article;

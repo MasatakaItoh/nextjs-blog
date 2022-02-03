@@ -1,14 +1,13 @@
 import type { GetStaticProps, NextPage } from 'next';
 import { Params } from 'next/dist/server/router';
 
-import { Meta } from '../../../components/common/Meta';
 import { client } from '../../../libs/client';
+import { Meta } from '../../../components/common/Meta';
+import { ArticleList } from '../../../components/organisms/list/ArticleList';
+import { TagList } from '../../../components/molecules/TagList';
 import { Article } from '../../../types/api/article';
-import { Grid } from '../../../components/atoms/layout/Grid';
-import { ArticleCard } from '../../../components/molecules/ArticleCard';
 import { ClientArticle, ClientCategory } from '../../../types/api/client';
 import { Category } from '../../../types/api/category';
-import { TagList } from '../../../components/molecules/TagList';
 
 type Props = {
   articles: Array<Article>;
@@ -28,23 +27,7 @@ const CategoryArticle: NextPage<Props> = ({ articles, categories, currentCategor
         <div className='l-content__body'>
           <TagList categories={categories} currentIndex={categoryIndex} />
           <div className='l-content__list'>
-            {articles.length > 0 ? (
-              <Grid>
-                {articles.map((article) => (
-                  <article key={article.id}>
-                    <ArticleCard
-                      id={article.id}
-                      title={article.title}
-                      thumbnail={article.thumbnail}
-                      publishedAt={article.publishedAt}
-                      excerpt={article.excerpt}
-                    />
-                  </article>
-                ))}
-              </Grid>
-            ) : (
-              <p>該当の記事が見つかりませんでした。</p>
-            )}
+            {articles.length > 0 ? <ArticleList articles={articles} /> : <p>該当の記事が見つかりませんでした。</p>}
           </div>
         </div>
       </main>
