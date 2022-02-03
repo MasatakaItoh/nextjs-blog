@@ -1,11 +1,10 @@
 import type { NextPage } from 'next';
 
-import { Meta } from '../../components/common/Meta';
 import { client } from '../../libs/client';
-import { Article } from '../../types/api/article';
-import { Grid } from '../../components/atoms/layout/Grid';
-import { ArticleCard } from '../../components/molecules/ArticleCard';
+import { Meta } from '../../components/common/Meta';
+import { ArticleList } from '../../components/organisms/list/ArticleList';
 import { TagList } from '../../components/molecules/TagList';
+import { Article } from '../../types/api/article';
 import { ClientArticle, ClientCategory } from '../../types/api/client';
 import { Category } from '../../types/api/category';
 
@@ -23,19 +22,7 @@ const Articles: NextPage<Props> = ({ articles, categories }) => {
         <div className='l-content__body'>
           <TagList categories={categories} />
           <div className='l-content__list'>
-            <Grid>
-              {articles.map((article) => (
-                <article key={article.id}>
-                  <ArticleCard
-                    id={article.id}
-                    title={article.title}
-                    thumbnail={article.thumbnail}
-                    publishedAt={article.publishedAt}
-                    excerpt={article.excerpt}
-                  />
-                </article>
-              ))}
-            </Grid>
+            <ArticleList articles={articles} />
           </div>
         </div>
       </main>

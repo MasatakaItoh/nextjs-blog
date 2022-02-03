@@ -1,15 +1,12 @@
 @import "../variables";
 
-.container {
+.content {
+  display: flex;
+  flex-direction: column;
   padding: 20px;
   @include mq(md) {
     padding: 30px;
   }
-}
-
-.content {
-  display: flex;
-  flex-direction: column;
 }
 
 .heading {

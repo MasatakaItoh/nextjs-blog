@@ -15,9 +15,9 @@ export const ArticleCard: VFC<Props> = memo(function ArticleCard(props) {
 
   return (
     <Card>
-      <div className={styles.container}>
-        <Link href={`/articles/${id}`}>
-          <a className={styles.content}>
+      <Link href={`/articles/${id}`}>
+        <a>
+          <div className={styles.content}>
             <h3 className={styles.heading}>{title}</h3>
             <div className={styles.thumbnail}>
               <img src={thumbnail.url} alt='' width={thumbnail.width} height={thumbnail.height} decoding='async' />
@@ -26,9 +26,9 @@ export const ArticleCard: VFC<Props> = memo(function ArticleCard(props) {
               {time}
             </time>
             <p className={styles.excerpt}>{excerpt}</p>
-          </a>
-        </Link>
-      </div>
+          </div>
+        </a>
+      </Link>
     </Card>
   );
 });

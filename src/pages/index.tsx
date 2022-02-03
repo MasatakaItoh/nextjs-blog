@@ -1,9 +1,8 @@
 import type { NextPage } from 'next';
 
 import { Meta } from '../components/common/Meta';
-import { Grid } from '../components/atoms/layout/Grid';
 import { TextLink } from '../components/atoms/link/TextLink';
-import { ArticleCard } from '../components/molecules/ArticleCard';
+import { ArticleList } from '../components/organisms/list/ArticleList';
 import { client } from '../libs/client';
 import { Article } from '../types/api/article';
 import { ClientArticle } from '../types/api/client';
@@ -25,19 +24,7 @@ const Home: NextPage<Props> = ({ articles }) => {
           </header>
           <div className='l-content__body'>
             <div className='l-content__list'>
-              <Grid>
-                {articles.map((article) => (
-                  <article key={article.id}>
-                    <ArticleCard
-                      id={article.id}
-                      title={article.title}
-                      thumbnail={article.thumbnail}
-                      publishedAt={article.publishedAt}
-                      excerpt={article.excerpt}
-                    />
-                  </article>
-                ))}
-              </Grid>
+              <ArticleList articles={articles} />
             </div>
             <div className='l-content__link _right'>
               <TextLink url='/articles/'>記事一覧を見る</TextLink>
