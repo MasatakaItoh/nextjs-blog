@@ -18,3 +18,13 @@
     text-decoration: underline;
   }
 }
+
+.backLink {
+  composes: link;
+  flex-direction: row-reverse;
+  &::after {
+    margin-right: 10px;
+    margin-left: 0;
+    transform: rotate(-135deg);
+  }
+}
